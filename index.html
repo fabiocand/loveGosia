@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>For Gosia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Fraunces:opsz,wght@9..144,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:   #151119;
+    --cream: #F2EAE4;
+    --muted: #8C8090;
+    --rose:  #D97189;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  body{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:"DM Mono", ui-monospace, monospace;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  main{
+    width:100%;
+    max-width:52rem;
+    margin:0 auto;
+    padding:clamp(2rem,8vw,4rem) clamp(1.5rem,7vw,4rem);
+  }
+
+  h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 144;
+    font-weight:400;
+    font-size:clamp(2.4rem,9vw,5rem);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    text-wrap:balance;
+  }
+
+  .label{
+    margin-top:clamp(3.5rem,10vw,5.5rem);
+    font-size:.72rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .digits{
+    margin-top:1.5rem;
+    display:flex;
+    gap:clamp(1.5rem,7vw,3.5rem);
+  }
+
+  .n{
+    display:block;
+    font-variant-numeric:tabular-nums;
+    font-size:clamp(2rem,9vw,3.6rem);
+    line-height:1;
+    letter-spacing:-.02em;
+  }
+  .l{
+    display:block;
+    margin-top:.6rem;
+    font-size:.62rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .unit--sec .n{ color:var(--rose); }
+
+  .arrived{
+    display:none;
+    margin-top:1.5rem;
+    font-family:"Fraunces", Georgia, serif;
+    font-size:clamp(1.4rem,5vw,2.2rem);
+    line-height:1.2;
+  }
+  body.is-here .digits,
+  body.is-here .label{ display:none; }
+  body.is-here .arrived{ display:block; }
+
+  @media (prefers-reduced-motion: no-preference){
+    h1, .label, .digits{ animation:in .8s cubic-bezier(.2,.7,.3,1) both; }
+    .label{ animation-delay:.15s; }
+    .digits{ animation-delay:.2s; }
+  }
+  @keyframes in{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<main>
+  <h1>I love you, Gosia.</h1>
+
+  <p class="label">Time left until hugs</p>
+
+  <div class="digits" role="timer">
+    <div class="unit"><span class="n" id="d">--</span><span class="l">days</span></div>
+    <div class="unit"><span class="n" id="h">--</span><span class="l">hours</span></div>
+    <div class="unit"><span class="n" id="m">--</span><span class="l">min</span></div>
+    <div class="unit unit--sec"><span class="n" id="s">--</span><span class="l">sec</span></div>
+  </div>
+
+  <p class="arrived">No time left. Come here.</p>
+</main>
+
+<script>
+  // 20:00, Monday 10 August 2026, Warsaw (CEST, UTC+2).
+  // Offset is baked in, so it's correct from any timezone.
+  var TARGET = new Date('2026-08-10T20:00:00+02:00');
+
+  var d = document.getElementById('d'),
+      h = document.getElementById('h'),
+      m = document.getElementById('m'),
+      s = document.getElementById('s');
+
+  function pad(n){ return n < 10 ? '0' + n : String(n); }
+
+  function tick(){
+    var left = TARGET - new Date();
+    if (left <= 0){ document.body.classList.add('is-here'); return; }
+    var sec = Math.floor(left / 1000);
+    d.textContent = pad(Math.floor(sec / 86400));
+    h.textContent = pad(Math.floor(sec / 3600) % 24);
+    m.textContent = pad(Math.floor(sec / 60) % 60);
+    s.textContent = pad(sec % 60);
+  }
+
+  tick();
+  setInterval(tick, 250);
+</script>
+
+</body>
+</html>
