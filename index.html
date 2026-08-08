@@ -119,6 +119,34 @@
     color:var(--cream);
   }
 
+  /* the poem */
+  .poem{
+    margin-top:clamp(4.5rem,13vw,7.5rem);
+    padding-top:clamp(2rem,5vw,2.75rem);
+    border-top:1px solid rgba(242,234,228,.10);
+    max-width:32rem;
+  }
+  .poem h2{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 60;
+    font-weight:400;
+    font-size:clamp(1.9rem,6.5vw,3rem);
+    line-height:1.05;
+    letter-spacing:-.02em;
+    text-wrap:balance;
+  }
+  .poem .stanza{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 14;
+    font-weight:300;
+    font-size:clamp(1.05rem,2.6vw,1.18rem);
+    line-height:1.85;
+    color:rgba(242,234,228,.76);
+  }
+  .poem h2 + .stanza{ margin-top:1.75rem; }
+  .poem .stanza + .stanza{ margin-top:1.75rem; }
+  .poem .stanza:last-child{ color:var(--cream); }
+
   @media (prefers-reduced-motion: no-preference){
     h1, .label, .digits{ animation:in .8s cubic-bezier(.2,.7,.3,1) both; }
     .label{ animation-delay:.15s; }
@@ -150,6 +178,59 @@
     <p class="body">My brain just stopped.</p>
     <p class="body">Only one thought made it through:</p>
     <p class="end">&ldquo;I love her.&rdquo;</p>
+  </section>
+
+  <section class="poem">
+    <h2>You live inside my heart</h2>
+
+    <p class="stanza">
+      this imperfect place,<br>
+      and you chose to stay<br>
+      even though the walls are cracked<br>
+      and the floor still trembles.
+    </p>
+
+    <p class="stanza">
+      I didn&rsquo;t promise you the moon,<br>
+      only the warmth of my chest<br>
+      and all the disorder I carry within it.<br>
+      And still, you stay.
+    </p>
+
+    <p class="stanza">
+      You light gentle lamps<br>
+      where darkness had taken root,<br>
+      and with patient hands<br>
+      you gather the rubble of my past<br>
+      as if it were something precious,<br>
+      just to make room.
+    </p>
+
+    <p class="stanza">
+      You live inside my heart,<br>
+      this fragile shelter,<br>
+      and for the first time<br>
+      I no longer feel the urge<br>
+      to tear it down.
+    </p>
+
+    <p class="stanza">
+      I only want to learn<br>
+      how to make it a little more beautiful<br>
+      for you.
+    </p>
+
+    <p class="stanza">
+      Stay.<br>
+      Love these cracks,<br>
+      because that&rsquo;s where the light gets in.
+    </p>
+
+    <p class="stanza">
+      I already love you,<br>
+      precisely because<br>
+      you chose to live in me.
+    </p>
   </section>
 </main>
 
