@@ -86,6 +86,24 @@
   body.is-here .label{ display:none; }
   body.is-here .arrived{ display:block; }
 
+  /* the line under the counter */
+  .mark{
+    margin-top:clamp(2.5rem,7vw,3.5rem);
+    max-width:34rem;
+  }
+  .mark .d{
+    font-size:.68rem;
+    letter-spacing:.24em;
+    color:var(--muted);
+  }
+  .mark p{
+    margin-top:.85rem;
+    font-size:clamp(.92rem,2.3vw,1.05rem);
+    line-height:1.6;
+    color:var(--cream);
+  }
+  .mark p .arrow{ color:var(--rose); margin-right:.5em; }
+
   /* the memory */
   .memory{
     margin-top:clamp(4.5rem,13vw,7.5rem);
@@ -170,6 +188,11 @@
   </div>
 
   <p class="arrived">No time left. Come here.</p>
+
+  <section class="mark">
+    <p class="d">10/08/2026</p>
+    <p><span class="arrow">&gt;&gt;</span>From this moment, we will no longer be separated.</p>
+  </section>
 
   <section class="poem">
     <h2>You live inside my heart</h2>
