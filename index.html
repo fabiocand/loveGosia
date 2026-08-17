@@ -102,6 +102,8 @@
     line-height:1.6;
     color:var(--cream);
   }
+  .mark p + p{ margin-top:.45rem; }
+  .mark .d + p{ margin-top:.85rem; }
   .mark p .arrow{ color:var(--rose); margin-right:.5em; }
 
   /* the memory */
@@ -190,7 +192,8 @@
   <p class="arrived">No time left. Come here.</p>
 
   <section class="mark">
-    <p class="d">10/08/2026</p>
+    <p class="d">22/08/2026</p>
+    <p><span class="arrow">&gt;&gt;</span>When the time runs out, we leave.</p>
     <p><span class="arrow">&gt;&gt;</span>From this moment, we will no longer be separated.</p>
   </section>
 
@@ -258,9 +261,9 @@
 </main>
 
 <script>
-  // 20:00, Monday 10 August 2026, Warsaw (CEST, UTC+2).
+  // 13:15, Saturday 22 August 2026, Warsaw (CEST, UTC+2).
   // Offset is baked in, so it's correct from any timezone.
-  var TARGET = new Date('2026-08-10T20:00:00+02:00');
+  var TARGET = new Date('2026-08-22T13:15:00+02:00');
 
   var d = document.getElementById('d'),
       h = document.getElementById('h'),
